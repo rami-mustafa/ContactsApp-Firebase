@@ -18,6 +18,7 @@
 		3814D43B2A3B979E000E1E52 /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D43A2A3B979E000E1E52 /* EditContactViewController.swift */; };
 		3814D43D2A3B97BC000E1E52 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D43C2A3B97BC000E1E52 /* PersonDetailViewController.swift */; };
 		38CC47012A3BACBE00DFA543 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38CC47002A3BACBE00DFA543 /* GoogleService-Info.plist */; };
+		38CC47042A3BAE3900DFA543 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 38CC47032A3BAE3900DFA543 /* FirebaseDatabase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38CC47042A3BAE3900DFA543 /* FirebaseDatabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +100,9 @@
 			dependencies = (
 			);
 			name = contactsApp;
+			packageProductDependencies = (
+				38CC47032A3BAE3900DFA543 /* FirebaseDatabase */,
+			);
 			productName = contactsApp;
 			productReference = 3814D41F2A3B903C000E1E52 /* contactsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -126,6 +131,9 @@
 				Base,
 			);
 			mainGroup = 3814D4162A3B903C000E1E52;
+			packageReferences = (
+				38CC47022A3BAE3900DFA543 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 3814D4202A3B903C000E1E52 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -378,6 +386,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		38CC47022A3BAE3900DFA543 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		38CC47032A3BAE3900DFA543 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38CC47022A3BAE3900DFA543 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3814D4172A3B903C000E1E52 /* Project object */;
 }
