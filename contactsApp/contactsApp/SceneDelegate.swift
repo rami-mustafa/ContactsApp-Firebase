@@ -1,10 +1,4 @@
-//
-//  SceneDelegate.swift
-//  contactsApp
-//
-//  Created by Ghaiath Alhereh on 11.06.23.
-//
-
+ 
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
