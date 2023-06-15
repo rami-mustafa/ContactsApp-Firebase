@@ -17,6 +17,7 @@
 		3814D4392A3B975A000E1E52 /* CreateNewPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D4382A3B975A000E1E52 /* CreateNewPersonViewController.swift */; };
 		3814D43B2A3B979E000E1E52 /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D43A2A3B979E000E1E52 /* EditContactViewController.swift */; };
 		3814D43D2A3B97BC000E1E52 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D43C2A3B97BC000E1E52 /* PersonDetailViewController.swift */; };
+		38CC47012A3BACBE00DFA543 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38CC47002A3BACBE00DFA543 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		3814D4382A3B975A000E1E52 /* CreateNewPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPersonViewController.swift; sourceTree = "<group>"; };
 		3814D43A2A3B979E000E1E52 /* EditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
 		3814D43C2A3B97BC000E1E52 /* PersonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
+		38CC47002A3BACBE00DFA543 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				3814D4382A3B975A000E1E52 /* CreateNewPersonViewController.swift */,
 				3814D43A2A3B979E000E1E52 /* EditContactViewController.swift */,
 				3814D43C2A3B97BC000E1E52 /* PersonDetailViewController.swift */,
+				38CC47002A3BACBE00DFA543 /* GoogleService-Info.plist */,
 			);
 			path = contactsApp;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3814D42F2A3B903D000E1E52 /* LaunchScreen.storyboard in Resources */,
+				38CC47012A3BACBE00DFA543 /* GoogleService-Info.plist in Resources */,
 				3814D42C2A3B903D000E1E52 /* Assets.xcassets in Resources */,
 				3814D42A2A3B903C000E1E52 /* Main.storyboard in Resources */,
 			);
