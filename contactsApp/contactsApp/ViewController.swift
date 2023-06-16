@@ -1,6 +1,7 @@
 
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
 
@@ -12,6 +13,7 @@ class ViewController: UIViewController {
     
     var liste = [String]()
     
+    var ref:DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,12 @@ class ViewController: UIViewController {
         contactsTableView.dataSource = self
         
         SearchBar.delegate = self
+        
+        
+        ref = Database.database().reference()
+    
+        
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

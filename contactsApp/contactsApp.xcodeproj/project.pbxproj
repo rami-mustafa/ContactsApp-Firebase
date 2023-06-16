@@ -17,6 +17,7 @@
 		3814D4392A3B975A000E1E52 /* CreateNewPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D4382A3B975A000E1E52 /* CreateNewPersonViewController.swift */; };
 		3814D43B2A3B979E000E1E52 /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D43A2A3B979E000E1E52 /* EditContactViewController.swift */; };
 		3814D43D2A3B97BC000E1E52 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D43C2A3B97BC000E1E52 /* PersonDetailViewController.swift */; };
+		385E8C3A2A3CF90C00D4E1C1 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385E8C392A3CF90C00D4E1C1 /* Contacts.swift */; };
 		38CC47012A3BACBE00DFA543 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38CC47002A3BACBE00DFA543 /* GoogleService-Info.plist */; };
 		38CC47042A3BAE3900DFA543 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 38CC47032A3BAE3900DFA543 /* FirebaseDatabase */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		3814D4382A3B975A000E1E52 /* CreateNewPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPersonViewController.swift; sourceTree = "<group>"; };
 		3814D43A2A3B979E000E1E52 /* EditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
 		3814D43C2A3B97BC000E1E52 /* PersonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
+		385E8C392A3CF90C00D4E1C1 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		38CC47002A3BACBE00DFA543 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +82,7 @@
 				3814D43A2A3B979E000E1E52 /* EditContactViewController.swift */,
 				3814D43C2A3B97BC000E1E52 /* PersonDetailViewController.swift */,
 				38CC47002A3BACBE00DFA543 /* GoogleService-Info.plist */,
+				385E8C392A3CF90C00D4E1C1 /* Contacts.swift */,
 			);
 			path = contactsApp;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				385E8C3A2A3CF90C00D4E1C1 /* Contacts.swift in Sources */,
 				3814D4272A3B903C000E1E52 /* ViewController.swift in Sources */,
 				3814D4232A3B903C000E1E52 /* AppDelegate.swift in Sources */,
 				3814D4392A3B975A000E1E52 /* CreateNewPersonViewController.swift in Sources */,
