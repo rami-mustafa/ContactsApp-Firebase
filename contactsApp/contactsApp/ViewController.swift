@@ -11,15 +11,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var contactsTableView: UITableView!
     
     
-    var liste = [String]()
+    var contactsliste = [Contacts]()
     
     var ref:DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-            liste = ["ece","mehmet","talat"]
-
+ 
         
         
         contactsTableView.delegate = self
@@ -30,9 +29,14 @@ class ViewController: UIViewController {
         
         ref = Database.database().reference()
     
-        
+        takeAllContacts()
         
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        takeAllContacts()
+//    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toDetail" {
@@ -42,6 +46,28 @@ class ViewController: UIViewController {
         if segue.identifier == "toUpdate" {
             
         }
+    }
+    
+    func takeAllContacts () {
+        ref.child("kisiler").observe(.value, with: { snapshot in
+            if let gelenVeriButtunu = snapshot.value as? [String:AnyObject] {
+                self.contactsliste.removeAll()
+                for gelenSatirVerisi in gelenVeriButtunu {
+                    if let sozluk = gelenSatirVerisi.value as? NSDictionary {
+                        let key = gelenSatirVerisi.key
+                        let kisi_ad = sozluk["kisi_ad"] as? String ?? ""
+                        let kisi_tel = sozluk["kisi_tel"] as? String ?? ""
+                        
+                        let person = Contacts(kisi_id: key, kisi_ad: kisi_ad, kisi_tel: kisi_tel)
+                        
+                        self.contactsliste.append(person)
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                self.contactsTableView.reloadData()
+            }
+        })
     }
 
 }
@@ -55,17 +81,19 @@ extension ViewController: UITableViewDelegate , UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return liste.count
+        return contactsliste.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        let person = contactsliste[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as! PersonCellTableViewCell
         
-        cell.personWritingLabel.text = liste[indexPath.row]
+        cell.personWritingLabel.text = "\(person.kisi_ad!) - \(person.kisi_tel!)"
         
         return cell
     }
-    
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
