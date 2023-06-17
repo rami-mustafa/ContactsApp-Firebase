@@ -33,9 +33,7 @@ class ViewController: UIViewController {
         
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        takeAllContacts()
-//    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -49,10 +47,10 @@ class ViewController: UIViewController {
     }
     
     func takeAllContacts () {
-        ref.child("kisiler").observe(.value, with: { snapshot in
-            if let gelenVeriButtunu = snapshot.value as? [String:AnyObject] {
-                self.contactsliste.removeAll()
-                for gelenSatirVerisi in gelenVeriButtunu {
+         ref.child("kisiler").observe(.value, with: { snapshot in
+             if let gelenVeriButtunu = snapshot.value as? [String:AnyObject] {
+                 self.contactsliste.removeAll()
+                 for gelenSatirVerisi in gelenVeriButtunu {
                     if let sozluk = gelenSatirVerisi.value as? NSDictionary {
                         let key = gelenSatirVerisi.key
                         let kisi_ad = sozluk["kisi_ad"] as? String ?? ""
@@ -61,6 +59,35 @@ class ViewController: UIViewController {
                         let person = Contacts(kisi_id: key, kisi_ad: kisi_ad, kisi_tel: kisi_tel)
                         
                         self.contactsliste.append(person)
+                    }
+                }
+            }
+             DispatchQueue.main.async {
+                self.contactsTableView.reloadData()
+            }
+        })
+    }
+    
+    
+    func Search(searchWord:String ) {
+        ref.child("kisiler").observe(.value, with: { snapshot in
+
+            if let gelenVeriButtunu = snapshot.value as? [String:AnyObject] {
+                self.contactsliste.removeAll()
+                for gelenSatirVerisi in gelenVeriButtunu {
+                    if let sozluk = gelenSatirVerisi.value as? NSDictionary {
+                        let key = gelenSatirVerisi.key
+                        let kisi_ad = sozluk["kisi_ad"] as? String ?? ""
+                        let kisi_tel = sozluk["kisi_tel"] as? String ?? ""
+                        
+                        
+                        if kisi_ad.contains(searchWord){
+                            
+                            let person = Contacts(kisi_id: key, kisi_ad: kisi_ad, kisi_tel: kisi_tel)
+                            
+                            self.contactsliste.append(person)
+                            
+                        }
                     }
                 }
             }
@@ -102,10 +129,19 @@ extension ViewController: UITableViewDelegate , UITableViewDataSource {
     }
     
 }
-extension ViewController:   UISearchBarDelegate {
+extension ViewController: UISearchBarDelegate {
     
     
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+       
+        if searchText == "" {
+            takeAllContacts()
+        }else {
+            Search(searchWord:searchText )
+
+        }
+        
+    }
     
     
 }
