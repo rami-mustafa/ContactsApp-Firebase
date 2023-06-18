@@ -37,12 +37,21 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        let indeks = sender as? Int
+        
         if segue.identifier == "toDetail" {
             
+            let toGoVC = segue.destination as! PersonDetailViewController
+            
+            toGoVC.person = contactsliste[indeks!]
+
         }
         
         if segue.identifier == "toUpdate" {
             
+            let toGoVC = segue.destination as! EditContactViewController
+
+            toGoVC.person = contactsliste[indeks!]
         }
     }
     
@@ -61,7 +70,9 @@ class ViewController: UIViewController {
                         self.contactsliste.append(person)
                     }
                 }
-            }
+             } else {
+                 self.contactsliste = [Contacts]()
+             }
              DispatchQueue.main.async {
                 self.contactsTableView.reloadData()
             }
@@ -90,6 +101,8 @@ class ViewController: UIViewController {
                         }
                     }
                 }
+            }else {
+                self.contactsliste = [Contacts]()
             }
             DispatchQueue.main.async {
                 self.contactsTableView.reloadData()
@@ -126,6 +139,7 @@ extension ViewController: UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.performSegue(withIdentifier: "toDetail", sender: indexPath.row)
+ 
     }
     
     
@@ -139,7 +153,7 @@ extension ViewController: UITableViewDelegate , UITableViewDataSource {
             }
            
            let EditAction = UIContextualAction(style: .normal, title: "Edit") {( contextualAction, view, boolValue )in
-                self.performSegue(withIdentifier: "toGuncelle", sender: indexPath.row)
+                self.performSegue(withIdentifier: "toUpdate", sender: indexPath.row)
            }
            
            
