@@ -128,6 +128,22 @@ extension ViewController: UITableViewDelegate , UITableViewDataSource {
         self.performSegue(withIdentifier: "toDetail", sender: indexPath.row)
     }
     
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+          
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {( contextualAction, view, boolValue )in
+            }
+           
+           let EditAction = UIContextualAction(style: .normal, title: "Edit") {( contextualAction, view, boolValue )in
+                self.performSegue(withIdentifier: "toGuncelle", sender: indexPath.row)
+           }
+           
+           
+           
+           return UISwipeActionsConfiguration(actions: [deleteAction,EditAction])
+       }
+    
 }
 extension ViewController: UISearchBarDelegate {
     
