@@ -133,6 +133,9 @@ extension ViewController: UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
           
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {( contextualAction, view, boolValue )in
+            let person = self.contactsliste[indexPath.row]
+            
+            self.ref.child("kisiler").child(person.kisi_id!).removeValue()
             }
            
            let EditAction = UIContextualAction(style: .normal, title: "Edit") {( contextualAction, view, boolValue )in
