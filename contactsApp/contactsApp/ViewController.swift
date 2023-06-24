@@ -144,7 +144,26 @@ extension ViewController: UITableViewDelegate , UITableViewDataSource {
     
     
     
-
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//
+//
+//        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {( contextualAction, view, boolValue )in
+//
+//                let person = self.contactsliste[indexPath.row]
+//                self.ref.child("kisiler").child(person.kisi_id!).removeValue()
+//                tableView.deleteRows(at: [indexPath], with: .automatic)
+//
+//            }
+//
+//
+//           let EditAction = UIContextualAction(style: .normal, title: "Edit") {( contextualAction, view, boolValue )in
+//                self.performSegue(withIdentifier: "toUpdate", sender: indexPath.row)
+//           }
+//
+//
+//
+//           return UISwipeActionsConfiguration(actions: [deleteAction,EditAction])
+//       }
     
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -153,9 +172,7 @@ extension ViewController: UITableViewDelegate , UITableViewDataSource {
             
             let person = self.contactsliste[indexPath.row]
             self.ref.child("kisiler").child(person.kisi_id!).removeValue()
-            self.contactsliste.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            completion(true)
+              completion(true)
         }
         deleteAction.image = UIImage(systemName: "trash")
         deleteAction.backgroundColor = .systemRed
