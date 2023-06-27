@@ -168,11 +168,27 @@ extension ViewController: UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
+        let person = self.contactsliste[indexPath.row]
+
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, completion in
             
-            let person = self.contactsliste[indexPath.row]
-            self.ref.child("kisiler").child(person.kisi_id!).removeValue()
-              completion(true)
+            let alert = UIAlertController(title: "Deletion process", message: "Delete : \(person.kisi_ad!) ", preferredStyle: .alert)
+          
+            let cancelAtcion = UIAlertAction(title: "cancel", style: .cancel) { action in
+                
+            }
+            
+            let OkAtcion = UIAlertAction(title: "OK", style: .destructive) { action in
+                self.ref.child("kisiler").child(person.kisi_id!).removeValue()
+                  completion(true)
+            }
+            
+            alert.addAction(cancelAtcion)
+            alert.addAction(OkAtcion)
+            self.present(alert, animated: true)
+            
+            
+            
         }
         deleteAction.image = UIImage(systemName: "trash")
         deleteAction.backgroundColor = .systemRed
