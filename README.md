@@ -1,6 +1,11 @@
 # Contacts App with Firebase
 
 
+## Technologies
+-  I did the recording and uninstalling of events using the `Firebase` structure
+-  UIKit
+-  Auto Layout
+
 # Installation and Use
 1. Clone this project from GitHub or download it as a ZIP.
 2. Open Xcode and open the project by selecting the .xcodeproj file in the project folder.
